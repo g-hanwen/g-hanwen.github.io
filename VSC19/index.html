@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width"><meta name="fediverse:creator" content="@hanwen@types.pl"><link rel="stylesheet" href="/css/weibian.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap"><link rel="stylesheet" href="/css/stix-two-math.css"><meta name="identifier" content="VSC19"><meta name="lang" content="en"><title>Optimizing and evaluating transient gradual typing</title><style>/* Alignment */
+mtable.right-align mtd,
+mtable mtd.right-align,
+mtable.left-align mtd.right-align,
+mtable.aligned mtd:nth-child(odd) {
+  justify-items: end;
+  text-align: right;
+}
+mtable.cases mtd,
+mtable.left-align mtd,
+mtable mtd.left-align,
+mtable.aligned mtd:nth-child(even),
+math:is(:not([display])) > mtable.multiline-equation mtd {
+  justify-items: start;
+  text-align: left;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.left-flush {
+  padding-left: 0;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.right-flush {
+  padding-right: 0;
+}
+
+/* Tables */
+mtable {
+  math-style: inherit;
+}
+mtd {
+  math-depth: auto-add;
+  math-style: compact;
+  math-shift: compact;
+}
+
+/* Equations */
+mtable.multiline-equation mtd {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+  padding: 0;
+}
+math > mtable.multiline-equation mtr:not(:last-child) mtd {
+  padding-bottom: 0.5em;
+}
+
+/* Fractions */
+mfrac {
+  padding-inline: 0;
+  margin-inline: 0.1em;
+}
+
+/* Accents */
+mover[accent="true" i] > :first-child {
+  font-feature-settings: "dtls";
+}
+mover.dotted[accent="true" i] > :first-child {
+  font-feature-settings: "dtls" 0;
+}
+
+/* Other rules for scriptlevel, displaystyle and math-shift */
+munder > :nth-child(2),
+munderover > :nth-child(2) {
+  math-shift: compact
+}
+munder[accentunder="true" i] > :not(:first-child),
+mover[accent="true" i] > :not(:first-child) {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+}</style></head><body><div id="grid-wrapper"><header class="header"><nav class="nav"><div class="logo"><a href="/" title="Home">« Home</a></div></nav></header><article><section class="block" lang="en"><details open><summary><header><h1 id="VSC19"><span class="taxon">Inproceedings</span>Optimizing and evaluating transient gradual typing <a class="slug" href="/VSC19/">[VSC19]</a></h1><div class="metadata"><ul><li class="meta-item">DLS 2019</li><li class="meta-item"><address class="author">Michael M. Vitousek, Jeremy G. Siek, Avik Chaudhuri</address></li><li class="meta-item">2019-10-20</li><li class="meta-item"><a class="link external" href="https://doi.org/10.1145/3359619.3359742">10.1145/3359619.3359742</a></li></ul></div></header></summary><div>Gradual typing enables programmers to combine static and dynamic typing in the same language. However, ensuring sound interaction between the static and dynamic parts can incur runtime cost. In this paper, we analyze the performance of the transient design for gradual typing in Reticulated Python, a gradually typed variant of Python. This approach inserts lightweight checks throughout a program rather than installing proxies on higher order values. We show that, when using CPython as a host, performance decreases as programs evolve from dynamic to static types, up to a 6x slowdown compared to equivalent Python programs. To reduce this overhead, we design a static analysis and optimization that removes redundant runtime checks, employing a type inference algorithm that solves traditional subtyping constraints and also a new kind of check constraint. We evaluate the resulting performance and find that for many programs, the efficiency of partially typed programs is close to their untyped counterparts, removing most of the cost of transient checks. Finally, we measure the efficiency of Reticulated Python programs when running on PyPy, a tracing JIT. We find that combining PyPy with our type inference algorithm results in an average overhead of less than 1%.</div></details></section><footer></footer></article></div></body></html>
